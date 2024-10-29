@@ -14,9 +14,9 @@ Create a linear topology with eight hosts, run connectivity and performance test
 2. **Inspect Interface Information, MAC Addresses, IP and Ports**:\
     **a**. Commands to view topology information:
     ```bash
-    nodes      # Lista todos os nós da rede
-    net        # Exibe as conexões entre os nós
-    h1 ifconfig  # Exibe detalhes da interface do hos
+    nodes      # Node list in the topology
+    net        # Display network configuration
+    h1 ifconfig  # Display interface information for h1
     ```
 3. **Create Topology Diagram**:
     ```mermaid
@@ -43,7 +43,7 @@ Create a linear topology with eight hosts, run connectivity and performance test
       ```bash
       pingall # Pings between all nodes
       ```
-    **b**. Use tcpdump to view packets, example for h1:
+    **b**. Use tcpdump to view packets pinged by h2 to h1:
     ```bash
     xterm h1
     tcpdump -i h1-eth0
@@ -55,10 +55,10 @@ Create a linear topology with eight hosts, run connectivity and performance test
     xterm h1
     iperf -s -p 5555
     ```
-    **b**. On h2, run the client to test bandwidth, reporting per second for 5 seconds:
+    **b**. On h2, run the client to test bandwidth, reporting per second for 15 seconds:
     ```bash
     xterm h2
-    iperf -c 10.0.0.1 -p 5555 -i 1 -t 5
+    iperf -c 10.0.0.1 -p 5555 -i 1 -t 15
     ```
     ![TCP Test](docs/images/tcp_connection.png)
     **c**. To test bandwidths of 1, 5, 10, 15, 20, and 25 Mbps, recreate the topology with each value using:
@@ -66,7 +66,10 @@ Create a linear topology with eight hosts, run connectivity and performance test
     sudo mn -c
     sudo mn --top=linear,8 --mac --link=tc,bw=<value>
     ```
+    // TODO (Pedro): Add the results of the tests using topic `a` and `b` as reference.
 
 ## Exercise 2: Custom Topology in Python
 Implement a custom topology in Python, inspect the interfaces, create a diagram, configure MAC rules and verify connectivity.
+
+// TODO (Arthur): Solve the exercise 2 and add the steps to execution here.
 
