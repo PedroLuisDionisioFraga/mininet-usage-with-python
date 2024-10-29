@@ -1,7 +1,8 @@
+#!/usr/bin/python3
+
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.cli import CLI
-from mininet.link import TCLink
 
 class CustomTopo(Topo):
   def build(self):
@@ -17,7 +18,7 @@ class CustomTopo(Topo):
 
 if __name__ == '__main__':
   topo = CustomTopo()
-  net = Mininet(topo=topo, link=TCLink)
+  net = Mininet(topo=topo)
   net.start()
   CLI(net)
   net.stop()
