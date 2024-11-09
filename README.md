@@ -186,7 +186,7 @@ e) **MAC Rules Configuration between h2, h3 and h4**:
             inet6 fe80::200:ff:fe00:3  prefixlen 64  scopeid 0x20<link>
             ether 00:00:00:00:00:03  txqueuelen 1000  (Ethernet)
     ```
-2. Delete all existing switch rules of `s5` and `s6`:
+2. Delete all existing switch rules of `s5` and `s6`:\
     a) See the existing rules:
     ```shell
     mininet> sh ovs-ofctl dump-flows s5
@@ -206,27 +206,27 @@ e) **MAC Rules Configuration between h2, h3 and h4**:
 	```shell
     # h2 to h3
     # s6
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02,actions=output:2
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03,actions=output:3
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_type=0x806,nw_proto=1,action=flood
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02,actions=output:2
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03,actions=output:3
+    mininet> sh ovs-ofctl add-flow s6 dl_type=0x806,nw_proto=1,action=flood
 
     # h2 to h4
     # s6
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04,actions=output:1
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02,actions=output:2
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04,actions=output:1
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02,actions=output:2
     # s5
-    mininet> sh sudo ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02,actions=output:3
-    mininet> sh sudo ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04,actions=output:2
-    mininet> sh sudo ovs-ofctl add-flow s5 dl_type=0x806,nw_proto=1,action=flood
+    mininet> sh ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02,actions=output:3
+    mininet> sh ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04,actions=output:2
+    mininet> sh ovs-ofctl add-flow s5 dl_type=0x806,nw_proto=1,action=flood
 
 
     # h3 to h2
     # s6
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04,actions=output:1
-    mininet> sh sudo ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03,actions=output:3
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04,actions=output:1
+    mininet> sh ovs-ofctl add-flow s6 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03,actions=output:3
     # s5
-    mininet> sh sudo ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04,actions=output:2
-    mininet> sh sudo ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03,actions=output:3
+    mininet> sh ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04,actions=output:2
+    mininet> sh ovs-ofctl add-flow s5 dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03,actions=output:3
     ```
 
 f) **Ping Tests between h2, h3 and h4**:
