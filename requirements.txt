@@ -1,1 +1,1 @@
-mininet==2.3.0
+mininet==2.3.0.dev6
