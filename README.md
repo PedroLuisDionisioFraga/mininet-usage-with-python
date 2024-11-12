@@ -70,6 +70,7 @@ Create a linear topology with eight hosts, run connectivity and performance test
 
 ## Exercise 2: Custom Topology in Python
 Implement a custom topology in Python, inspect the interfaces, create a diagram, configure MAC rules and verify connectivity.
+![Custom Topology](docs/images/question_two_topology.png)
 
 a) **Topology Implementation**:\
 Topology implementation in Python:
